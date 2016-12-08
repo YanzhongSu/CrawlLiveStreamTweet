@@ -40,7 +40,8 @@ class MyListener(StreamListener):
     def __init__(self, data_dir, query):
         query_fname = format_filename(query)
         # client = MongoClient('mongodb://localhost:27017')
-        client = MongoClient('mongodb://syz:password@svm-ys3n15-comp6235-temp.ecs.soton.ac.uk:27017/livestream')
+        # client = MongoClient('mongodb://syz:password@svm-ys3n15-comp6235-temp.ecs.soton.ac.uk:27017/livestream')
+        client = MongoClient()
         db = client.livesteam
         self.collection = db.starbucks_collection
         print "**************************"
