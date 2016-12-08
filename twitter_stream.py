@@ -15,9 +15,9 @@ import argparse
 import string
 import config
 import json
-import simplejson as js
+#import simplejson as js
 from pymongo import MongoClient
-import ast
+#import ast
 
 def get_parser():
     """Get parser for command line arguments."""
@@ -43,7 +43,7 @@ class MyListener(StreamListener):
         # client = MongoClient('mongodb://syz:password@svm-ys3n15-comp6235-temp.ecs.soton.ac.uk:27017/livestream')
         client = MongoClient()
         db = client.livesteam
-        self.collection = db.starbucks_collection
+        self.collection = db.costa_coffee_collection
         print "**************************"
         print query_fname
         print "**************************"
@@ -106,6 +106,6 @@ if __name__ == '__main__':
     api = tweepy.API(auth)
 
     # twitter_stream = Stream(auth, MyListener(args.data_dir, args.query))
-    twitter_stream = Stream(auth, MyListener('data', 'starbucks'))
+    twitter_stream = Stream(auth, MyListener('data', 'costacoffee'))
     # twitter_stream.filter(track=[args.query])
-    twitter_stream.filter(track=['starbucks'])
+    twitter_stream.filter(track=['costacoffee'])
